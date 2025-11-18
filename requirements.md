@@ -4,4 +4,4 @@
 - python-dotenv (pip install-dotenv)
 - requests (pip install requests)
 
-***IF YOU WANT TO DO IT AUTOMATICALY RUN installer.py
+***IF YOU WANT TO DO IT AUTOMATICALY RUN installer.py***
