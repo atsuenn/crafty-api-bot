@@ -1,4 +1,3 @@
-# bot.py
 import requests
 import os
 
