@@ -29,9 +29,8 @@ Once you have the necessary libraries, you can then run setup.py where it will a
 Double click the main.py or open it using terminal.
 
 **On Linux:**
-```
-python main.py
-```
+For linux specific instructions please see [here](./LINUX)
+*(or if you're running this on raspberrypi linux)*
 
 Once the code is running and has connected to discord, you then need to go to a channel in which your server is in and run ``!sync`` which will then sync the / commands to your server.
 
