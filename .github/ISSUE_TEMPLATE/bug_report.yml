@@ -1,5 +1,5 @@
 name: 🐛 Bug Report
-description: Report a broken link, wrong checklist item, or something not working
+description: Report a broken command, smaller issue, or something not working
 title: "[Bug] "
 labels: [bug]
 body:
@@ -7,14 +7,14 @@ body:
     attributes:
       label: What went wrong?
       description: Describe the issue clearly.
-      placeholder: "The SCA.B Schemes download link is broken..."
+      placeholder: "The start command did not work..."
     validations:
       required: true
+  - type: textarea
+    attributes:
+      label: How dod it happen?
+      placeholder: "do not simply enter it didnt work"
   - type: input
     attributes:
-      label: Where did it happen?
-      placeholder: "e.g. About section, first card, footer..."
-  - type: input
-    attributes:
-      label: Browser/device (optional)
-      description: If this might be a display or loading issue
+      label: Device
+      description: Whether this is an issue on your side
