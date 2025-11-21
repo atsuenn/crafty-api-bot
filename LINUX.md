@@ -24,7 +24,7 @@ python3 -m venv myenv
 ```
 **Entering the virtual env:**
 ```
-source venv/bin/activate
+source myenv/bin/activate
 ```
 
 **Then run main.py:**
