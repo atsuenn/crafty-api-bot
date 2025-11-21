@@ -1,7 +1,7 @@
 name: 💬 Feature Request
 description: Share a feature request or suggestion for improving the bot code.
 title: "[Feature] "
-labels: [feature]
+labels: [enhancement]
 body:
   - type: textarea
     attributes:
