@@ -3,7 +3,6 @@
 import discord
 from discord import app_commands
 from discord.ext import commands
-from typing import Literal, Optional
 
 import os
 import requests
@@ -52,6 +51,48 @@ async def github(ctx):
     """Takes you to the GitHub page"""
     await ctx.send("Link to project GitHub page: https://github.com/atsuenn/crafty-api-bot")
 
+# Status command
+@bot.command()
+async def status(ctx):
+    """Non slash status command"""
+    url = defaultURL + "stats"
+
+    print(f"status url: {url}")
+
+    response = requests.get(url, headers=headers, verify=False)
+
+    json_data = response.json()
+
+    # Getting data from json and dumping it into usable variables
+    isRunning = json_data["data"]["running"]
+    cpuUse = json_data["data"]["cpu"]
+    memUse = json_data["data"]["mem"]
+    worldName = json_data["data"]["world_name"]
+    worldSize = json_data["data"]["world_size"]
+    peopleOnline = json_data["data"]["online"]
+    maxPlayers = json_data["data"]["max"]
+    version = json_data["data"]["version"]
+
+    # Changes embed colour based on whether the server is running
+    if isRunning:
+        colour = discord.Color.green()
+    else:
+        colour = discord.Color.red()
+
+    # Discord embed message stuff
+    embed = discord.Embed(title="Status:", description=f"Running: {isRunning} \n CPU Usage: {cpuUse}% \n RAM Usage: {memUse} \n World Name: {worldName} \n World Size: {worldSize} \n People Online: {peopleOnline} \n Max Players: {maxPlayers} \n \n Server Version: {version}", color=colour)
+    embed.set_author(name="Crafty-API-Bot")
+    await ctx.send(embed=embed)
+
+# Start command
+@bot.command()
+async def start(ctx):
+    """Starts the server"""
+    url = defaultURL + "action/start_server"
+
+    response = requests.post(url, headers=headers, verify=False)
+
+    await ctx.send("Starting...")
 
 #
 # Crafty API Bot commands
@@ -83,6 +124,39 @@ async def send_command(interaction: discord.Interaction, cmd: str):
 
     response = requests.post(url, headers=headers, data=cmd, verify=False)
     await interaction.response.send_message(f"Sending command: {cmd}")
+
+@bot.tree.command(name="status", description="Status of your server")
+async def status(interaction: discord.Interaction):
+    """Checks status of server by sending an API request to your crafty controller instance"""
+    url = defaultURL + "stats"
+
+    print(f"status url: {url}")
+
+    response = requests.get(url, headers=headers, verify=False)
+
+    json_data = response.json()
+
+    # Getting data from json and dumping it into usable variables
+    isRunning = json_data["data"]["running"]
+    cpuUse = json_data["data"]["cpu"]
+    memUse = json_data["data"]["mem"]
+    worldName = json_data["data"]["world_name"]
+    worldSize = json_data["data"]["world_size"]
+    peopleOnline = json_data["data"]["online"]
+    maxPlayers = json_data["data"]["max"]
+    version = json_data["data"]["version"]
+
+    # Changes embed colour based on whether the server is running
+    if isRunning:
+        colour = discord.Color.green()
+    else:
+        colour = discord.Color.red()
+
+    # Discord embed message stuff
+    embed = discord.Embed(title="Status:", description=f"Running: {isRunning} \n CPU Usage: {cpuUse}% \n RAM Usage: {memUse} \n World Name: {worldName} \n World Size: {worldSize} \n People Online: {peopleOnline} \n Max Players: {maxPlayers} \n \n Server Version: {version}", color=colour)
+    embed.set_author(name="Crafty-API-Bot")
+    await interaction.response.send_message(embed=embed)
+
 
 
 if __name__ == "__main__":
