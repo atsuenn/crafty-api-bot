@@ -1,0 +1,16 @@
+name: 💬 Feature Request
+description: Share a feature request or suggestion for improving the bot code.
+title: "[Feature] "
+labels: [feature]
+body:
+  - type: textarea
+    attributes:
+      label: What would you like to suggest?
+      description: Describe your suggestion or feature request.
+      placeholder: "I’d love to see a command that does..."
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: (Optional) Your name or GitHub/Discord
+      description: For credit or follow-up
