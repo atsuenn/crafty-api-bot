@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 
 discord_token = input("Enter your Discord bot token: ")
 crafty_api_key = input("Enter your Crafty API key: ")
-crafty_url = input("Enter Crafty URL (default http://127.0.0.1:8000): ") + "/api/v2/servers/"
+crafty_url = input("Enter Crafty URL (default https://127.0.0.1:8000): ") + "/api/v2/servers/"
 server_id = input("Enter Crafty server ID: ")
 
 env_content = f"""DISCORD_TOKEN={discord_token}
