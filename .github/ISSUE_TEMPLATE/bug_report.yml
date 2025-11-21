@@ -12,7 +12,7 @@ body:
       required: true
   - type: textarea
     attributes:
-      label: How dod it happen?
+      label: How did it happen?
       placeholder: "do not simply enter it didnt work"
   - type: input
     attributes:
