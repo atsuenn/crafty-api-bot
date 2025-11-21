@@ -1,1 +1,20 @@
-
+name: 🐛 Bug Report
+description: Report a broken link, wrong checklist item, or something not working
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: textarea
+    attributes:
+      label: What went wrong?
+      description: Describe the issue clearly.
+      placeholder: "The SCA.B Schemes download link is broken..."
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Where did it happen?
+      placeholder: "e.g. About section, first card, footer..."
+  - type: input
+    attributes:
+      label: Browser/device (optional)
+      description: If this might be a display or loading issue
