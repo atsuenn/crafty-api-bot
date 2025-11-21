@@ -20,6 +20,10 @@ screen -S myBot
 
 **Creating a new python virtual env:**
 ```
+python3 -m venv myenv
+```
+**Entering the virtual env:**
+```
 source venv/bin/activate
 ```
 
