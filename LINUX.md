@@ -26,7 +26,14 @@ python3 -m venv myenv
 ```
 source myenv/bin/activate
 ```
-
+**Run installation.py**
+```
+python3 installer.py
+```
+**Also run setup.py before main.py:**
+```
+python3 setuo.py
+```
 **Then run main.py:**
 ```
 python3 main.py
